@@ -64,19 +64,12 @@ gulp.task("js-min", function() {
     .pipe(gulp.dest("dist"))
 })
 
-// Copy sources to doc folder
-
-gulp.task("copy", ["css", "css-min", "js", "js-min"], function() {
-  return gulp.src(["dist/**/*"]).pipe(gulp.dest("doc/pull-menu"))
-})
-
 gulp.task("serve", function() {
   browserSync.init({
-    server: "./doc"
+    server: "./"
   })
 
   gulp.watch("src/**", ["copy"])
 })
 
-gulp.task("doc", ["copy", "deploy"])
 gulp.task("default", ["css", "css-min", "js", "js-min"])
