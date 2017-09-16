@@ -1,7 +1,7 @@
 {
   "name": "pull-menu",
-  "version": "1.0.0",
-  "description": "Pure JavaScript pull menu.",
+  "version": "0.0.0",
+  "description": "Pure JavaScript pull menu",
   "main": "pull-menu.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,12 +10,17 @@
     "type": "git",
     "url": "git+https://github.com/rfoel/pull-menu.git"
   },
-  "keywords": [
-    "JavaScript",
-    "menu",
-    "pull-menu"
-  ],
-  "author": "@rfoel",
+  "keywords": ["JavaScript", "menu", "pull-menu"],
+  "devDependencies": {
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-clean-css": "^2.3.2",
+    "gulp-gh-pages": "^0.5.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^2.0.0"
+  },
+  "author": "Rafael Franco <rafaelfr@outlook.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/rfoel/pull-menu/issues"
