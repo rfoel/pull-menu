@@ -1,0 +1,24 @@
+{
+  "name": "pull-menu",
+  "version": "1.0.0",
+  "description": "Pure JavaScript pull menu.",
+  "main": "pull-menu.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rfoel/pull-menu.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "menu",
+    "pull-menu"
+  ],
+  "author": "@rfoel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rfoel/pull-menu/issues"
+  },
+  "homepage": "https://github.com/rfoel/pull-menu#readme"
+}

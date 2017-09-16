@@ -1,0 +1,44 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#phone {
+  width: 310px;
+  height: 640px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#speaker {
+  width: 50px;
+  height: 6px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+#screen {
+  width: 280px;
+  height: 520px;
+  border: 1px solid #ccc;
+}
+
+#home {
+  width: 50px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  margin-top: 20px;
+}
