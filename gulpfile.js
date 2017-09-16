@@ -1,16 +1,15 @@
-var gulp = require("gulp")
-var browserSync = require("browser-sync")
-var autoprefixer = require("gulp-autoprefixer")
-var uglify = require("gulp-uglify")
-var ghPages = require("gulp-gh-pages")
-var rename = require("gulp-rename")
-var reload = browserSync.reload
-var cleanCSS = require("gulp-clean-css")
+const gulp = require("gulp")
+const browserSync = require("browser-sync")
+const autoprefixer = require("gulp-autoprefixer")
+const uglify = require("gulp-uglify")
+const rename = require("gulp-rename")
+const cleanCSS = require("gulp-clean-css")
+const reload = browserSync.reload
 
 // config
 
-var srcFolder = "src"
-var distFolder = "dist"
+const srcFolder = "src"
+const distFolder = "dist"
 
 // build
 
@@ -69,7 +68,7 @@ gulp.task("serve", function() {
     server: "./"
   })
 
-  gulp.watch("src/**", ["copy"])
+  gulp.watch("src/**", ["js", "css"])
 })
 
 gulp.task("default", ["css", "css-min", "js", "js-min"])
