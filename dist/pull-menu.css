@@ -51,6 +51,7 @@ body {
   width: 280px;
   height: 520px;
   border: 1px solid #ccc;
+  overflow: hidden;
 }
 
 #home {
@@ -67,6 +68,10 @@ nav {
   background: #222831;
   cursor: -webkit-grab;
   cursor: grab;
+  -webkit-transition: height 0.2s ease-out;
+  -o-transition: height 0.2s ease-out;
+  transition: height 0.2s ease-out;
+  position: relative;
 }
 
 nav:active {
@@ -74,7 +79,7 @@ nav:active {
   cursor: grabbing;
 }
 
-ul {
+#menu {
   width: 1000px;
   height: 56px;
   list-style: none;
@@ -82,13 +87,46 @@ ul {
   padding: 0;
 }
 
-li {
+#menu li {
   line-height: 56px;
   display: inline;
   padding: 0 20px;
   opacity: 0;
 }
 
-li.active {
+#menu li.active {
   opacity: 1;
+}
+
+.pull-menu-icon {
+  width: 16px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  right: 20px;
+  bottom: 27px;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.pull-menu-icon:after {
+  content: "";
+  width: 8px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 10px;
+  left: 4px;
+}
+.pull-menu-icon:before {
+  content: "";
+  width: 16px;
+  height: 2px;
+  background: #fff;
+  position: absolute;
+  top: 5px;
+  left: 0;
+}
+.pull-menu-icon.hide {
+  opacity: 0;
 }
