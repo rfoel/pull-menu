@@ -2,7 +2,7 @@ const screen = document.querySelector("#screen")
 const nav = screen.querySelector("nav")
 const pullIcon = nav.querySelector(".pull-icon")
 const menu = nav.querySelector("#menu")
-const items = [...menu.querySelectorAll("li")]
+const items = menu.querySelectorAll("li")
 let mouseStartY
 const navHeight = nav.offsetHeight
 let isMouseDown
@@ -53,14 +53,12 @@ function pulling(e) {
       menu.style.setProperty("transform", `translate(${getItemX(index)}px, 0)`)
       items.forEach(item => item.classList.remove("active"))
       item.classList.add("active")
-      items.sort((x, y) => x.classList.contains("active") ? -1 : 1)
-      console.log(items)
     }
 
     if (newHeight > maxPull - navHeight) {
       menu.classList.add("active")
       pullIcon.classList.add("hide")
-      menu.style.paddingTop = `${(newHeight - navHeight) / 1.7}px`
+      menu.style.paddingTop = `${(newHeight - navHeight) / 2}px`
     } else {
       menu.classList.remove("active")
       pullIcon.classList.remove("hide")
