@@ -68,9 +68,9 @@ nav {
   background: #222831;
   cursor: -webkit-grab;
   cursor: grab;
-  -webkit-transition: height 0.2s ease-out;
-  -o-transition: height 0.2s ease-out;
-  transition: height 0.2s ease-out;
+  -webkit-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
   position: relative;
 }
 
@@ -85,9 +85,9 @@ nav:active {
   list-style: none;
   margin: 0;
   padding: 0;
-  -webkit-transition: padding 0.1s ease-in-out;
-  -o-transition: padding 0.1s ease-in-out;
-  transition: padding 0.1s ease-in-out;
+  -webkit-transition: all 0.1s ease-in-out;
+  -o-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
