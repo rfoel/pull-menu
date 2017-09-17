@@ -6,11 +6,11 @@ const items = menu.querySelectorAll("li")
 let mouseStartY
 const navHeight = nav.offsetHeight
 let isMouseDown
-const maxPull = 80
+const maxPull = 120
 let itemsCount
 let pullStep
 let index
-
+maxPull
 items.forEach((item, index) => {
   item.setAttribute("data-index", index)
   if (item.classList.contains("active")) {
@@ -51,7 +51,7 @@ function pulling(e) {
       menu.classList.add("active")
       pullIcon.classList.add("hide")
       menu.style.paddingTop = `${(newHeight - navHeight) / 2}px`
-
+      
       index = Math.floor(newHeight / pullStep)
       if (index < itemsCount) {
         let item = menu.querySelector(`[data-index="${index}"]`)

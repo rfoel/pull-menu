@@ -17,6 +17,12 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
+  background: #F3904F;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#3B4371), to(#F3904F));
+  background: -o-linear-gradient(left, #3B4371, #F3904F);
+  background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 #phone {
@@ -48,6 +54,7 @@ body {
 }
 
 #screen {
+  background: #fff;
   width: 280px;
   height: 520px;
   border: 1px solid #ccc;
