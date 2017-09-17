@@ -81,10 +81,18 @@ nav:active {
 
 #menu {
   width: 1000px;
-  height: 56px;
+  height: 50px;
   list-style: none;
   margin: 0;
   padding: 0;
+  -webkit-transition: padding 0.1s ease-in-out;
+  -o-transition: padding 0.1s ease-in-out;
+  transition: padding 0.1s ease-in-out;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #menu li {
@@ -94,22 +102,28 @@ nav:active {
   opacity: 0;
 }
 
+#menu.active li {
+  opacity: 0.2;
+}
+
 #menu li.active {
+  font-weight: 600;
   opacity: 1;
 }
 
-.pull-menu-icon {
+.pull-icon {
   width: 16px;
   height: 2px;
   background: #fff;
-  position: absolute;
-  right: 20px;
-  bottom: 27px;
   -webkit-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
 }
-.pull-menu-icon:after {
+
+.pull-icon:after {
   content: "";
   width: 8px;
   height: 2px;
@@ -118,7 +132,8 @@ nav:active {
   top: 10px;
   left: 4px;
 }
-.pull-menu-icon:before {
+
+.pull-icon:before {
   content: "";
   width: 16px;
   height: 2px;
@@ -127,6 +142,7 @@ nav:active {
   top: 5px;
   left: 0;
 }
-.pull-menu-icon.hide {
+
+.pull-icon.hide {
   opacity: 0;
 }
