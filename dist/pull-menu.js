@@ -47,18 +47,21 @@ function pulling(e) {
     }
     nav.style.height = `${navHeight + newHeight}px`
 
-    index = Math.floor(newHeight / pullStep)
-    if (index < itemsCount) {
-      let item = menu.querySelector(`[data-index="${index}"]`)
-      menu.style.setProperty("transform", `translate(${getItemX(index)}px, 0)`)
-      items.forEach(item => item.classList.remove("active"))
-      item.classList.add("active")
-    }
-
-    if (newHeight > maxPull - navHeight) {
+    if (newHeight > navHeight - maxPull) {
       menu.classList.add("active")
       pullIcon.classList.add("hide")
       menu.style.paddingTop = `${(newHeight - navHeight) / 2}px`
+
+      index = Math.floor(newHeight / pullStep)
+      if (index < itemsCount) {
+        let item = menu.querySelector(`[data-index="${index}"]`)
+        menu.style.setProperty(
+          "transform",
+          `translate(${getItemX(index)}px, 0)`
+        )
+        items.forEach(item => item.classList.remove("active"))
+        item.classList.add("active")
+      }
     } else {
       menu.classList.remove("active")
       pullIcon.classList.remove("hide")
