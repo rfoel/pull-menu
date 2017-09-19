@@ -3,6 +3,7 @@ const nav = screen.querySelector("nav")
 const pullIcon = nav.querySelector(".pull-icon")
 const menu = nav.querySelector("#menu")
 const items = menu.querySelectorAll("li")
+const loaderIcon = menu.querySelector(".loader-icon")
 const totalPull = 50
 const release = 30
 const pullRelease = totalPull + release
@@ -60,6 +61,7 @@ function pulling(e) {
     items.forEach(item => item.classList.remove("active"))
     let item = menu.querySelector(`[data-index="${index}"]`)
     item.classList.add("active")
+    loaderIcon.style.setProperty("transform", `rotate(${newHeight * 20})deg)`)
   }
 }
 
