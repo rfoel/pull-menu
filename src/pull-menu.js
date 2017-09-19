@@ -3,8 +3,8 @@ const nav = screen.querySelector("nav")
 const pullIcon = nav.querySelector(".pull-icon")
 const menu = nav.querySelector("#menu")
 const items = menu.querySelectorAll("li")
-const totalPull = 80
-const release = 40
+const totalPull = 50
+const release = 30
 const pullRelease = totalPull + release
 const navHeight = nav.offsetHeight
 const itemsCount = items.length
@@ -44,9 +44,10 @@ function pulling(e) {
 
     index = Math.max(
       0,
-      Math.min(itemsCount - 2, Math.floor((newHeight - release) / pullStep))
+      Math.min(itemsCount - 1, Math.floor((newHeight - release) / pullStep))
     )
-    if (newHeight > pullRelease + pullStep * 2) index = itemsCount - 1
+
+    if (newHeight > pullRelease + pullStep * 1) index = itemsCount - 1
 
     if (newHeight > release) {
       menu.classList.add("active")
