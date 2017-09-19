@@ -3,14 +3,16 @@ const nav = screen.querySelector("nav")
 const pullIcon = nav.querySelector(".pull-icon")
 const menu = nav.querySelector("#menu")
 const items = menu.querySelectorAll("li")
-let mouseStartY
+const totalPull = 80
+const release = 40
+const pullRelease = totalPull + release
 const navHeight = nav.offsetHeight
+const itemsCount = items.length
+const pullStep = pullRelease / (itemsCount - 1)
 let isMouseDown
-const maxPull = 120
-let itemsCount
-let pullStep
+let mouseStartY
 let index
-maxPull
+
 items.forEach((item, index) => {
   item.setAttribute("data-index", index)
   if (item.classList.contains("active")) {
@@ -18,16 +20,9 @@ items.forEach((item, index) => {
   }
 })
 
-itemsCount = items.length
-pullStep = maxPull / (itemsCount - 1)
-
-function getItemX(index) {
-  let item = menu.querySelector(`[data-index="${index}"]`)
-  let screenWidth = document.querySelector("#screen").offsetWidth
-
-  return (
-    menu.offsetLeft - item.offsetLeft + (screenWidth - item.offsetWidth) / 2
-  )
+function pullStart(e) {
+  isMouseDown = true
+  mouseStartY = e.offsetY
 }
 
 function pullEnd() {
@@ -42,36 +37,37 @@ function pulling(e) {
   e.preventDefault()
   if (isMouseDown) {
     let newHeight = Math.max(0, e.offsetY - mouseStartY)
-    if (newHeight > maxPull) {
-      newHeight = maxPull + (newHeight - maxPull) / (newHeight * 0.01)
+    if (newHeight > pullRelease) {
+      newHeight = pullRelease + (newHeight - pullRelease) / (newHeight * 0.01)
     }
     nav.style.height = `${navHeight + newHeight}px`
 
-    if (newHeight > navHeight - maxPull) {
+    index = Math.max(
+      0,
+      Math.min(itemsCount - 2, Math.floor((newHeight - release) / pullStep))
+    )
+    if (newHeight > pullRelease + pullStep * 2) index = itemsCount - 1
+
+    if (newHeight > release) {
       menu.classList.add("active")
       pullIcon.classList.add("hide")
-      menu.style.paddingTop = `${(newHeight - navHeight) / 2}px`
-      
-      index = Math.floor(newHeight / pullStep)
-      if (index < itemsCount) {
-        let item = menu.querySelector(`[data-index="${index}"]`)
-        menu.style.setProperty(
-          "transform",
-          `translate(${getItemX(index)}px, 0)`
-        )
-        items.forEach(item => item.classList.remove("active"))
-        item.classList.add("active")
-      }
     } else {
       menu.classList.remove("active")
       pullIcon.classList.remove("hide")
     }
+    menu.style.setProperty("transform", `translate(${getItemX(index)}px, 0)`)
+    items.forEach(item => item.classList.remove("active"))
+    let item = menu.querySelector(`[data-index="${index}"]`)
+    item.classList.add("active")
   }
 }
 
-function pullStart(e) {
-  isMouseDown = true
-  mouseStartY = e.offsetY
+function getItemX(index) {
+  let menuOffsetLeft = menu.offsetLeft ? menu.offsetLeft : 0
+  let item = menu.querySelector(`[data-index="${index}"]`)
+  let itemOffsetLeft = item.offsetLeft ? item.offsetLeft : 0
+  let screenWidth = document.querySelector("#screen").offsetWidth
+  return menuOffsetLeft - itemOffsetLeft + (screenWidth - item.offsetWidth) / 2
 }
 
 nav.addEventListener("mousedown", pullStart)
