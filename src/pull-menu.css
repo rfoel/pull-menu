@@ -12,10 +12,9 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: #F3904F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #3B4371, #F3904F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3B4371, #F3904F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
+  background: #f3904f;
+  background: -webkit-linear-gradient(to right, #3b4371, #f3904f);
+  background: linear-gradient(to right, #3b4371, #f3904f);
 }
 
 #phone {
@@ -62,9 +61,6 @@ nav {
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
 }
 
 nav:active {
@@ -72,11 +68,16 @@ nav:active {
 }
 
 #menu {
-  width: 1000px;
-  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  margin-top: -26px;
+  white-space: nowrap;
   -webkit-transition: all 0.1s ease-in-out;
   -moz-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
